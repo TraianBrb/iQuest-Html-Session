@@ -1,0 +1,350 @@
+// font: arial / helvetica
+
+$header-color: #d94e44;
+$content-red: #db4d3f;
+$content-gray: #f6f4f4;
+$font: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+
+@mixin hover-buttons($color) {
+  &:hover {
+    cursor: pointer;
+    color: darken($color, 15%);
+    border-color: darken($color, 15%);
+  }
+}
+
+@mixin hover-inputs {
+  &:hover {
+    border: 1px solid #d6d4d4;
+  }
+}
+
+
+body {
+  font-family: $font;
+  line-height: 1.5;
+}
+
+  .logo-container {
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $header-color;
+  }
+
+    .logo {
+      display: block;
+      width: 228.5px;
+      height: 26px;
+      font-size: 0;
+      background: url('../images/logo.png') no-repeat center;
+      background-size: 100%;
+    }
+
+  .navigation {
+    width: 100%;
+    border-bottom: 1px solid #d6d4d4;
+    @supports (display: flex) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+    .navigation__new-recipe {
+      width: 50%;
+      height: 62px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 0;
+      color: $header-color;
+      padding: 0;
+      background-color: #fff;
+      border: 0;
+      outline: none;
+      border-right: 1px solid #d6d4d4;
+      transition: all 0.15s ease;
+      @supports (display: flex) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &:hover {
+        cursor: pointer;
+        color: darken($header-color, 15%);
+      }
+    }
+
+      .fa-plus {
+        padding: 5px;
+      }
+
+    .navigation__select-recipe-container {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+    }
+
+      .navigation__select-recipe {
+        max-width: 100%;
+        padding: 5px;
+        font-size: 18px;
+        line-height: 0;
+        box-sizing: border-box;
+        outline: none;
+        border-radius: 6px;
+        border: 1px solid #f9f5f5;
+        transition: all 0.15s ease;
+        @include hover-inputs;
+      }
+
+  .content-container {
+    margin: 0 auto;
+    max-width: 998px;
+    @media screen and (min-width: 500px) {
+      padding: 0 15px;
+    }
+    @media screen and (min-width: 700px) {
+      padding: 0 30px;
+    }
+  }
+
+    .content__block {
+      margin-top: 21px;
+    }
+
+      .content__header {
+        padding: 10px 15px;
+        background-color: $content-red;
+        line-height: 0;
+        color: #fff;
+        font-size: 19px;
+        font-weight: 600;
+        display: flex;
+        align-items: baseline;
+      }
+
+        .header__icon {
+          margin-right: 6px;
+        }
+
+      .content__main {
+        background-color: $content-gray;
+        display: flex;
+        padding: 24px 0;
+        flex-direction: column;
+        @media screen and (min-width: 350px) {
+          padding: 24px 15px;
+        }
+        @media screen and (min-width: 700px) {
+          padding: 24px 30px;
+        }
+      }
+
+        .about__form {
+          max-width: 100%;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          font-family: $font;
+          font-size: 15px;
+        }
+
+          .form-container {
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+          }
+
+            .form__label {
+              margin-bottom: 12px;
+              font-weight: 600;
+            }
+
+            .form-input {
+              max-width: 100%;
+              border: 1px solid #fff;
+              outline: none;
+              padding: 10px;
+              border-radius: 2px;
+              font-family: $font;
+              font-size: 15px;
+              transition: all 0.15s ease;
+              @include hover-inputs;
+            }
+
+            #description {
+              resize: vertical;
+            }
+
+          .about__numbers-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+          }
+
+            .about__numbers-item {
+              margin-right: 30px;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              @media screen and (min-width: 430px) {
+                margin: 0;
+                flex-direction: row;
+                align-items: center;
+              }
+            }
+
+            .about__numbers-label {
+              font-weight: 600;
+              @media screen and (min-width: 430px) {
+                margin-right: 5px;
+              }
+            }
+
+            .about__form-input--select {
+              padding: 5px;
+              border-radius: 6px;
+            }
+
+        .ingredients-list {
+          list-style: none;
+          margin: 24px;
+
+          li {
+            background: url('../images/ul-style.png') left top 8px no-repeat;
+            background-size: 10px;
+            padding-left: 18px;
+          }
+        }
+
+        .ingredients__interaction {
+        }
+
+          .ingredients__form {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+
+            .form-input__qty {
+              min-width: 50px;
+              max-width: 80px;
+              margin-right: 10px;
+              border-radius: 6px;
+              box-sizing: border-box;
+            }
+
+            .form-input__unit {
+              min-width: 70px;
+              max-width: 120px;
+              margin-right: 10px;
+              border-radius: 6px;
+              box-sizing: border-box;
+            }
+
+            .ingredients__form__span {
+              display: none;
+              @media screen and (min-width: 430px) {
+                display: block;
+                margin-right: 10px;
+              }
+            }
+
+            .form-input__ingredient {
+              width: 100%;
+              min-width: 110px;
+              max-width: 350px;
+              margin-right: 10px;
+              border-radius: 6px;
+              box-sizing: border-box;
+            }
+
+            .form-input__add {
+              padding: 12px 10px;
+              border: 1px solid $content-red;
+              color: $content-red;
+              background-color: #fff;
+              border-radius: 6px;
+              display: flex;
+              align-items: center;
+              text-decoration: none;
+              transition: all 0.15s ease;
+              @include hover-buttons($content-red);
+            }
+
+              .fa-plus-square {
+                color: inherit;
+              }
+
+        .steps-list {
+          margin: 20px 0 20px 20px;
+        }
+
+          .steps-list__item {
+            margin-bottom: 15px;
+          }
+
+        #step-description {
+          resize: vertical;
+        }
+
+        #add-step {
+          color: $content-red;
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 0;
+          justify-content: center;
+          @include hover-buttons($content-red);
+        }
+
+          #add-step__icon {
+            margin-right: 5px;
+            margin-top: 3px;
+            font-size: 18px;
+          }
+
+    .main__footer {
+      margin: 21px 0;
+    }
+    .cancel {
+      width: 50%;
+      background-color: #fff;
+      color: $content-red;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 0;
+      padding: 10px;
+      border: 1px solid $content-red;
+      border-radius: 6px;
+      outline: none;
+      transition: all 0.15s ease;
+      @include hover-buttons($content-red);
+    }
+
+      .fa-trash-o {
+        margin-right: 5px;
+      }
+
+    .save-recipe {
+      width: 50%;
+      background-color: $content-red;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 0;
+      padding: 10px;
+      border: 1px solid $content-red;
+      border-radius: 6px;
+      outline: none;
+      transition: all 0.15s ease;
+      &:hover {
+        cursor: pointer;
+        background-color: darken($content-red, 15%);
+      }
+    }
+
+      .fa-floppy-o {
+        margin-right: 5px;
+      }
